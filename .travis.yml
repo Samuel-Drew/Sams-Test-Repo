@@ -12,9 +12,9 @@ before_install:
     # Useful for debugging any issues with conda
     - conda info -a
 install:
-    conda config --add channels conda-forge
-    conda create --yes -n rtbtestenv python=$TRAVIS_PYTHON_VERSION --yes --file requirements.txt
-    conda activate rtbtestenv
+    - conda config --add channels conda-forge
+    - conda create --yes -n rtbtestenv python=$TRAVIS_PYTHON_VERSION --yes --file requirements.txt
+    - conda activate rtbtestenv
 script:
     # your test script goes here
 
