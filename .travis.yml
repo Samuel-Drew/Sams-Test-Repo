@@ -1,0 +1,18 @@
+language: python
+python:
+    - "3.7"
+    - "3.8"
+before_install: 
+    # Install Latest version of Miniconda
+    - wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O -miniconda.sh
+    - chmod +x miniconda.sh
+    - ./miniconda.sh -b
+    - export PATH=/home/travis/miniconda/bin:$PATH
+    - conda update --yes conda
+install:
+    conda config --add channels conda-forge
+    conda create --yes -n rtbtestenv python=$TRAVIS_PYTHON_VERSION --yes --file requirements.txt
+    conda activate rtbtestenv
+script:
+    # your test script goes here
+
